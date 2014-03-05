@@ -16,7 +16,10 @@ processor.register('_static/*path', function(data, callback){
     return callback();
   }
 
-  Asset.checkModified(src, function(err, modified){
+  doc.path = path;
+  doc.save();
+
+  Asset.updateStat(src, function(err, modified){
     if (err) {
       return callback(err);
     }
