@@ -1,36 +1,24 @@
 var processor = hexo.extend.processor;
-
-var fs = require('graceful-fs'),
-  pathFn = require('path');
-
-processor.register('_static/*path', function(data, callback){
+var pathFn = require('path');
+processor.register('_static/*path', function static_processor(data) {
   var Asset = hexo.model('Asset');
   var path = data.path,
-    src = pathFn.join('source', path),
-    doc = Asset.findOne({source: src});
+  src = pathFn.join('source', path),
+  doc = Asset.findOne({source: src});
 
-  if (data.type === 'delete' && doc){
-    hexo.route.remove(path);
-    doc.remove();
+  if (data.type === 'delete'){
+      if (doc) {
+          return doc.remove();
+      }
 
-    return callback();
+      return;
   }
 
-  doc.path = path;
-  doc.save();
-
-  Asset.updateStat(src, function(err, modified){
-    if (err) {
-      return callback(err);
-    }
-
-    var content = function(fn){
-      fn(null, fs.createReadStream(data.source));
-    };
-
-    content.modified = modified;
-
-    hexo.route.set(data.params.path, content);
-    callback();
-  });
+  var id = data.source.substring(hexo.base_dir.length).replace(/\\/g, '/');
+  return Asset.save({
+      _id: id,
+      path: path.replace('_static',''),
+      modified: data.type !== 'skip',
+      renderable: false
+  })
 });
