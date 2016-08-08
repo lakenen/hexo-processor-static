@@ -1,6 +1,6 @@
 {
   "name": "hexo-processor-static",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Hexo plugin for copying static files from source/_static to public",
   "main": "index",
   "repository": {
@@ -16,7 +16,7 @@
     "url": "https://raw.github.com/tommy351/hexo/master/LICENSE"
   },
   "engines": {
-    "hexo": "~2.4.5"
+    "hexo": "~3.2.0"
   },
   "dependencies": {
     "graceful-fs": "~2.0.2"
