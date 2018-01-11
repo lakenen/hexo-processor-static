@@ -13,10 +13,11 @@ if (hexo.config.copy_md_src) {
 if (hexo.config.copy_dst) {
     copy_dst = hexo.config.copy_md_dst;
 } else {
-    copy_src = '';
+    copy_dst = '';
 }
 
-var copy_dst = hexo.config.copy_md_dst;
+console.log('SOURCE: ' + copy_src);
+console.log('SOURCE: ' + copy_dst);
 
 if ( fs.exists(copy_src)) {
     processor.register( copy_src + '/*path', function static_processor(data) {
