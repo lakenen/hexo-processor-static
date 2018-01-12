@@ -16,8 +16,9 @@
     "hexo": "~3.2.0"
   },
   "dependencies": {
-    "graceful-fs": "~2.0.2",
-    "hexo-fs": "^0.2.2"
+    "graceful-fs": "^4.1.11",
+    "hexo-fs": "^0.2.2",
+    "path": "^0.12.7"
   },
   "bugs": {
     "url": "https://github.com/lakenen/hexo-processor-static/issues"

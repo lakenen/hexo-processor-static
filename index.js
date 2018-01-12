@@ -17,6 +17,7 @@ if (config.copy_dst) {
     copy_dst = '';
 }
 
+<<<<<<< HEAD:index.js
 processor.register( copy_src + '/*path', function static_processor(data) {
     var Asset = hexo.model('Asset');
     var path = data.path,
@@ -25,6 +26,22 @@ processor.register( copy_src + '/*path', function static_processor(data) {
     if (data.type === 'delete'){
         if (doc) {
             return doc.remove();
+=======
+console.log('SOURCE: ' + copy_src);
+console.log('SOURCE: ' + copy_dst);
+
+if ( fs.exists(copy_src)) {
+    processor.register( copy_src + '/*path', function static_processor(data) {
+        var Asset = hexo.model('Asset');
+        var path = data.path,
+        src = pathFn.join('source', path),
+        doc = Asset.findOne({source: src});
+        if (data.type === 'delete'){
+            if (doc) {
+                return doc.remove();
+            }
+            return;
+>>>>>>> 236efd96dfc7a32e077541d57797ac66aa3b548a:dist/index.js
         }
         return;
     }
