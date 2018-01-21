@@ -7,10 +7,7 @@
     "type": "git",
     "url": "git://github.com/lakenen/hexo-processor-static.git"
   },
-  "author": {
-    "name": "Cameron Lakenen",
-    "email": "cameron.lakenen@gmail.com"
-  },
+  "author": "Cameron Lakenen <cameron@lakenen.com>",
   "license": "MIT",
   "engines": {
     "hexo": "~3.2.0"
