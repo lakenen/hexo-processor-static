@@ -16,3 +16,7 @@ copy_dst: "" //name of the directory you want to copy the files to '' by default
 ```
 - **copy_src** - Name of the directory you want to copy from _static by default
 - **copy_dst** - Name of the directory you want to copy the files to '' by default, which places the files in the root output directory
+
+## License
+
+MIT
